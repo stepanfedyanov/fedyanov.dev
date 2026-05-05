@@ -1,2 +1,49 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: NeevaBot
+Allow: /
+
+User-agent: PhindBot
+Allow: /
+
+User-agent: AndiBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+Sitemap: https://fedyanov.dev/sitemap.xml

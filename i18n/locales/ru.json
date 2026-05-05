@@ -1,0 +1,105 @@
+{
+  "index": {
+    "hero": {
+      "title": "Привет!",
+      "about_me": "Меня зовут Степан Федянов, я разработчик ИИ-приложений. Начинал с веб-программирования, а сейчас разрабатываю и проектирую приложения, которые помогают автоматизировать процессы с помощью искусственного интеллекта.",
+      "about_me_headline": "Живу в Уругвае, Монтевидео.",
+      "links": [
+        {
+          "name": "Электронная почта",
+          "url": "mailto:stepan{'@'}fedyanov.ru"
+        },
+        {
+          "name": "Телеграм",
+          "url": "https://t.me/stepanfedyanov"
+        },
+        {
+          "name": "Резюме",
+          "url": "https://cv.fedyanov.ru"
+        }
+      ]
+    },
+    "work_experience": {
+      "title": "Опыт работы",
+      "items": [
+        {
+          "position": "Senior AI Engineer",
+          "company": "Сибзолото",
+          "company_link": "https://www.gmkzoloto.ru/",
+          "period": "Март 2024 — настоящее время"
+        },
+        {
+          "position": "Senior Software Engineer",
+          "company": "Студия Артемия Лебедева",
+          "company_link": "https://www.artlebedev.ru/",
+          "period": "Май 2024 — настоящее время"
+        },
+        {
+          "position": "Software Engineer",
+          "company": "Студия Артемия Лебедева",
+          "company_link": "https://www.artlebedev.ru/",
+          "period": "Июнь 2023 — Май 2024"
+        },
+        {
+          "position": "Web Developer",
+          "company": "Кворк",
+          "company_link": "https://kwork.ru/",
+          "period": "Январь 2021 — Июнь 2023"
+        }
+      ]
+    },
+    "videos": {
+      "title": "Выступления и лекции",
+      "items": [
+        {
+          "thumbnail_image": "/images/video-fedyanov-rgbm.jpg",
+          "thumnail_video": "/videos/video-fedyanov-rgbm.mp4",
+          "title": "Как стать программистом в этом безумном мире",
+          "url": "https://www.youtube.com/watch?v=8ZPjlsmm0NM",
+          "place": "Москва, РГБМ, осень 2023"
+        }
+      ]
+    },
+    "social_networks": {
+      "title": "Социальные сети",
+      "items": [
+        {
+          "name": "Электронная почта",
+          "url": "mailto:stepan{'@'}fedyanov.ru"
+        },
+        {
+          "name": "Телеграм",
+          "url": "https://t.me/stepanfedyanov"
+        },
+        {
+          "name": "Телеграм-канал «Мам, я программист»",
+          "url": "https://t.me/mumproger"
+        },
+        {
+          "name": "Github",
+          "url": "https://github.com/stepanfedyanov"
+        },
+        {
+          "name": "Gitlab",
+          "url": "https://gitlab.com/stepanfedyanov"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/in/stepanfedyanov/"
+        },
+        {
+          "name": "Английская версия сайта",
+          "url": "https://www.fedyanov.dev"
+        },
+        {
+          "name": "Резюме на русском",
+          "url": "https://cv.fedyanov.ru"
+        },
+        {
+          "name": "Резюме на английском",
+          "url": "https://resume.fedyanov.dev"
+        }
+      ]
+    }
+  }
+}
