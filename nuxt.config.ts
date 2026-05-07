@@ -50,7 +50,7 @@ export default defineNuxtConfig({
 
   i18n: {
     strategy: (process.env.NODE_ENV === 'production') ? 'no_prefix' : 'prefix_except_default',
-    defaultLocale: 'ru',
+    defaultLocale: 'en',
     differentDomains: (process.env.NODE_ENV === 'production'),
     locales: [
       { code: 'en', name: 'English', file: 'en.json', domain: 'www.fedyanov.dev'},

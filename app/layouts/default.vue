@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <main>
     <slot />
-  </div>
+  </main>
 </template>
 
 <style lang="scss">
@@ -91,6 +91,8 @@
 
 * {
   font-family: 'PT Sans', serif;
+  line-height: 1.4;
+  backface-visibility: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, a {
@@ -118,11 +120,25 @@ h3 {
   font-size: var(--default-font-size);
 }
 
-body {
-  padding: 80px 100px;
+p {
+  margin: 0;
 }
 
-section {
+body {
+  padding: 80px 100px;
+
+  @media (max-width: 900px) {
+    padding: 40px 20px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+section, footer, header {
   display: flex;
   flex-direction: column;
   gap: calc(var(--default-font-size) * 1.5)

@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "index": {
+      "title": "Федянов Степан — Applied AI Engineer",
+      "description": "Федянов Степан — Applied AI Engineer — Разработка приложений систем с LLM, RAG-пайплайны, работа с Multi-Agent, Text-to-SQL"
+    }
+  },
   "index": {
     "hero": {
       "title": "Привет!",
