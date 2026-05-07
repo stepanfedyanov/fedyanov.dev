@@ -3,7 +3,9 @@
     <h1>{{ $t('index.hero.title') }}</h1>
 
     <div class="hero__container">
-      <NuxtPicture class="hero__avatar" src="/images/hero-fedyanov-avatar.jpg" />
+      <div class="hero__avatar" >
+        <img src="/images/hero-fedyanov-avatar.jpg" alt="Stepan Fedyanov" />
+      </div>
       
       <div class="hero__container-text">
         <p>{{ $t('index.hero.about_me') }}</p>
