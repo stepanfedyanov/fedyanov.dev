@@ -29,16 +29,22 @@
       "title": "Work Experience",
       "items": [
         {
+          "position": "Applied AI Engineer",
+          "company": "CreativeCo Studio",
+          "company_link": "https://www.linkedin.com/company/creativecostudio/posts/",
+          "period": "May 2026 — Present"
+        },
+        {
           "position": "Senior AI Engineer",
           "company": "Sibgold",
           "company_link": "https://www.gmkzoloto.ru/",
-          "period": "March 2024 — Present"
+          "period": "March 2024 — May 2026"
         },
         {
           "position": "Senior Software Engineer",
           "company": "Art. Lebedev Studio",
           "company_link": "https://www.artlebedev.ru/",
-          "period": "May 2024 — Present"
+          "period": "May 2024 — May 2026"
         },
         {
           "position": "Software Engineer",

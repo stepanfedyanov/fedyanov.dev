@@ -29,16 +29,22 @@
       "title": "Опыт работы",
       "items": [
         {
+          "position": "Applied AI Engineer",
+          "company": "CreativeCo Studio",
+          "company_link": "https://www.linkedin.com/company/creativecostudio/posts/",
+          "period": "Май 2026 — настоящее время"
+        },
+        {
           "position": "Senior AI Engineer",
           "company": "Сибзолото",
           "company_link": "https://www.gmkzoloto.ru/",
-          "period": "Март 2024 — настоящее время"
+          "period": "Март 2024 — Май 2026"
         },
         {
           "position": "Senior Software Engineer",
           "company": "Студия Артемия Лебедева",
           "company_link": "https://www.artlebedev.ru/",
-          "period": "Май 2024 — настоящее время"
+          "period": "Май 2024 — Май 2026"
         },
         {
           "position": "Software Engineer",
