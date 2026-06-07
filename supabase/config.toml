@@ -1,0 +1,18 @@
+project_id = "fedyanov.dev"
+
+[api]
+enabled = true
+schemas = ["public", "storage"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+major_version = 15
+
+[auth]
+enabled = true
+site_url = "https://fedyanov.dev"
+additional_redirect_urls = ["https://fedyanov.dev/**"]
+
+[storage]
+enabled = true
