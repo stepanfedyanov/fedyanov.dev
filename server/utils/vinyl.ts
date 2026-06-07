@@ -6,7 +6,13 @@ import {
   toStringArray,
 } from './admin';
 import { createError } from 'h3';
-import type { VinylRecordInput, VinylRecordSpeed } from '~/types/vinyl';
+import type {
+  PublicVinylRecord,
+  VinylRecord,
+  VinylRecordInput,
+  VinylRecordSpeed,
+  VinylStatistics,
+} from '~/types/vinyl';
 
 const speeds = new Set<VinylRecordSpeed>(['33_1_3', '45']);
 
@@ -87,4 +93,40 @@ export function withCoverUrls<T extends { cover_image_path: string | null }>(
       };
     }),
   );
+}
+
+export function toPublicVinylRecord(record: VinylRecord): PublicVinylRecord {
+  return {
+    id: record.id,
+    artist: record.artist,
+    album: record.album,
+    album_release_year: record.album_release_year,
+    edition_release_year: record.edition_release_year,
+    genres: record.genres,
+    cover_image_url: record.cover_image_url ?? null,
+    label: record.label,
+    country: record.country,
+    vinyl_color: record.vinyl_color,
+    disc_count: record.disc_count,
+    speed: record.speed,
+    limited_edition: record.limited_edition,
+    copy_number: record.copy_number,
+    discogs_url: record.discogs_url,
+    rating: record.rating,
+    favorite_tracks: record.favorite_tracks,
+  };
+}
+
+export function calculateVinylStatistics(records: Pick<VinylRecord, 'disc_count' | 'rating'>[]): VinylStatistics {
+  const ratedRecords = records.filter((record) => record.rating !== null);
+  const ratingTotal = ratedRecords.reduce((total, record) => total + (record.rating ?? 0), 0);
+  const averageRating = ratedRecords.length > 0
+    ? Math.round((ratingTotal / ratedRecords.length) * 10) / 10
+    : null;
+
+  return {
+    release_count: records.length,
+    disc_count: records.reduce((total, record) => total + record.disc_count, 0),
+    average_rating: averageRating,
+  };
 }

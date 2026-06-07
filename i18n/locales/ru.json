@@ -3,6 +3,10 @@
     "index": {
       "title": "Федянов Степан — Applied AI Engineer",
       "description": "Федянов Степан — Applied AI Engineer — Разработка приложений систем с LLM, RAG-пайплайны, работа с Multi-Agent, Text-to-SQL"
+    },
+    "vinyl": {
+      "title": "Коллекция винила — Федянов Степан",
+      "description": "Коллекция винила Степана Федянова: любимые альбомы, топ-оценки и статистика коллекции."
     }
   },
   "index": {
@@ -22,6 +26,10 @@
         {
           "name": "Резюме",
           "url": "https://cv.fedyanov.ru"
+        },
+        {
+          "name": "Винил",
+          "url": "/vinyl"
         }
       ]
     },
@@ -77,41 +85,87 @@
       "items": [
         {
           "name": "Электронная почта",
-          "url": "mailto:stepan{'@'}fedyanov.ru"
+          "url": "mailto:stepan{'@'}fedyanov.ru",
+          "target": "_blank"
         },
         {
           "name": "Телеграм",
-          "url": "https://t.me/stepanfedyanov"
+          "url": "https://t.me/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "Телеграм-канал «Мам, я программист»",
-          "url": "https://t.me/mumproger"
+          "url": "https://t.me/mumproger",
+          "target": "_blank"
         },
         {
           "name": "Github",
-          "url": "https://github.com/stepanfedyanov"
+          "url": "https://github.com/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "Gitlab",
-          "url": "https://gitlab.com/stepanfedyanov"
+          "url": "https://gitlab.com/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "LinkedIn",
-          "url": "https://www.linkedin.com/in/stepanfedyanov/"
+          "url": "https://www.linkedin.com/in/stepanfedyanov/",
+          "target": "_blank"
+        },
+        {
+          "name": "Винил",
+          "url": "/vinyl"
         },
         {
           "name": "Английская версия сайта",
-          "url": "https://www.fedyanov.dev"
+          "url": "https://www.fedyanov.dev",
+          "target": "_blank"
         },
         {
           "name": "Резюме на русском",
-          "url": "https://cv.fedyanov.ru"
+          "url": "https://cv.fedyanov.ru",
+          "target": "_blank"
         },
         {
           "name": "Резюме на английском",
-          "url": "https://resume.fedyanov.dev"
+          "url": "https://resume.fedyanov.dev",
+          "target": "_blank"
         }
       ]
+    }
+  },
+  "vinyl": {
+    "back_link": "На главную",
+    "hero": {
+      "title": "Коллекция винила",
+      "text": "Помимо работы, я люблю слушать музыку и собирать винил. В основном я слушаю поп-музыку и лайв-версии альбомов. Музыка помогает мне отдохнуть и развить креативность — навык, который отличает хорошего специалиста от ИИ."
+    },
+    "collection": {
+      "title": "Винил",
+      "limited_edition": "Лимитированное издание"
+    },
+    "top_albums": {
+      "title": "Топ-альбомов",
+      "rating": "{rating}/10"
+    },
+    "statistics": {
+      "title": "Статистика",
+      "items": {
+        "releases": {
+          "label": "Собрано",
+          "value": "{count} релизов"
+        },
+        "discs": {
+          "label": "Пластинок",
+          "value": "{count} шт."
+        },
+        "average_rating": {
+          "label": "Средняя оценка",
+          "value": "{rating}/10",
+          "empty": "Оценок пока нет"
+        }
+      }
     }
   }
 }

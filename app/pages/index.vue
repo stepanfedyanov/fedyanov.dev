@@ -12,7 +12,7 @@
         <p>{{ $t('index.hero.about_me_headline') }}</p>
 
         <div class="link-container">
-          <a v-for="link in $tm('index.hero.links')" :key="$rt(link.name)" :href="$rt(link.url)">
+          <a v-for="link in $tm('index.hero.links')" :key="$rt(link.name)" :href="resolveLinkUrl($rt(link.url))">
             {{ $rt(link.name) }}
           </a>
         </div>
@@ -59,19 +59,13 @@
       </div>  
     </div>
   </section>
-
-  <footer>
-    <h2>{{ $t('index.social_networks.title') }}</h2>
-    <div class="link-container">
-      <a v-for="social in $tm('index.social_networks.items')" :key="$rt(social.name)" :href="$rt(social.url)" target="_blank">
-        {{ $rt(social.name) }}
-      </a>
-    </div>
-  </footer>
 </template>
 
 <script setup lang="ts">
 const {t, locale} = useI18n();
+const localePath = useLocalePath();
+
+const resolveLinkUrl = (url: string) => url.startsWith('/') ? localePath(url) : url;
 
 useSeoMeta({
   title: t('seo.index.title'),
@@ -198,12 +192,6 @@ useSeoMeta({
     p {
       text-decoration: none;
     }
-  }
-}
-
-footer {
-  .link-container {
-    max-width: 345px;
   }
 }
 </style>

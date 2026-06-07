@@ -31,6 +31,34 @@ export type VinylRecord = {
 
 export type VinylRecordInput = Omit<VinylRecord, 'id' | 'created_at' | 'updated_at' | 'cover_image_url'>;
 
+export type PublicVinylRecord = Pick<
+  VinylRecord,
+  | 'id'
+  | 'artist'
+  | 'album'
+  | 'album_release_year'
+  | 'edition_release_year'
+  | 'genres'
+  | 'label'
+  | 'country'
+  | 'vinyl_color'
+  | 'disc_count'
+  | 'speed'
+  | 'limited_edition'
+  | 'copy_number'
+  | 'discogs_url'
+  | 'rating'
+  | 'favorite_tracks'
+> & {
+  cover_image_url: string | null;
+};
+
+export type VinylStatistics = {
+  release_count: number;
+  disc_count: number;
+  average_rating: number | null;
+};
+
 export type AdminUser = {
   user_id: string;
   email: string | null;

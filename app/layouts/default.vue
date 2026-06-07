@@ -1,8 +1,33 @@
 <template>
   <main>
     <slot />
+
+    <footer>
+      <h2>{{ $t('index.social_networks.title') }}</h2>
+      <div class="link-container">
+        <a
+          v-for="social in $tm('index.social_networks.items')"
+          :key="$rt(social.name)"
+          :href="resolveLinkUrl($rt(social.url))"
+          :target="resolveLinkTarget(social)"
+        >
+          {{ $rt(social.name) }}
+        </a>
+      </div>
+    </footer>
   </main>
 </template>
+
+<script setup lang="ts">
+const localePath = useLocalePath();
+
+const resolveLinkUrl = (url: string) => url.startsWith('/') ? localePath(url) : url;
+const resolveLinkTarget = (link: unknown) => {
+  const target = (link as { target?: unknown }).target;
+
+  return typeof target === 'string' ? target : undefined;
+};
+</script>
 
 <style lang="scss">
 @font-face {
@@ -103,9 +128,12 @@ h1, h2, h3, h4, h5, h6, a {
 
 a {
   font-size: var(--default-font-size);
-  text-underline-offset: 25%;
-  text-decoration-skip-ink: none;
   color: #000;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 25%;
+  text-decoration-skip: none;
+  text-decoration-skip-ink: none;
 }
 
 h1 {
@@ -148,5 +176,11 @@ section, footer, header {
   display: flex;
   gap: calc(var(--default-font-size) * 1.5);
   flex-wrap: wrap;
+}
+
+footer {
+  .link-container {
+    max-width: 345px;
+  }
 }
 </style>
