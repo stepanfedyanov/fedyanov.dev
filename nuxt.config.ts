@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  devtools: {enabled: true},
+  devtools: {enabled: process.env.NODE_ENV !== 'production'},
 
   compatibilityDate: '2026-05-05',
 
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@artmizu/yandex-metrika-nuxt', '@nuxtjs/i18n', 'nuxt-gtag', '@nuxtjs/sitemap', '@nuxt/image'],
+  modules: ['@artmizu/yandex-metrika-nuxt', '@nuxtjs/i18n', 'nuxt-gtag', '@nuxtjs/sitemap', '@nuxt/image', '@nuxtjs/supabase'],
 
   image: {
 		provider: 'ipx',
@@ -69,6 +69,15 @@ export default defineNuxtConfig({
 
   gtag: {
     id: 'G-9SZEZ9GY23'
+  },
+
+  supabase: {
+    redirect: false,
+    cookieOptions: {
+      sameSite: 'strict',
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 60 * 60 * 8,
+    },
   },
   
   css: ['normalize.css'],
