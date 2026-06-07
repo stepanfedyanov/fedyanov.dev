@@ -137,25 +137,28 @@
       "text": "Besides work, I love listening to music and collecting vinyl. I mostly listen to pop music and live versions of albums. Music helps me rest and develop creativity — a skill that separates a good specialist from AI."
     },
     "collection": {
-      "title": "Vinyl"
+      "title": "Vinyl",
+      "limited_edition": "Limited edition"
     },
     "top_albums": {
-      "title": "Top Albums"
+      "title": "Top Albums",
+      "rating": "{rating}/10"
     },
     "statistics": {
       "title": "Statistics",
       "items": {
-        "collected": {
+        "releases": {
           "label": "Collected",
-          "value": "12 records"
+          "value": "{count} releases"
         },
-        "total_duration": {
-          "label": "Total collection duration",
-          "value": "2340 minutes"
+        "discs": {
+          "label": "Records",
+          "value": "{count} discs"
         },
-        "live_albums": {
-          "label": "Live albums",
-          "value": "4 records"
+        "average_rating": {
+          "label": "Average rating",
+          "value": "{rating}/10",
+          "empty": "No ratings yet"
         }
       }
     }

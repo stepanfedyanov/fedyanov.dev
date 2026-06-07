@@ -10,12 +10,13 @@
   <section class="vinyl__page-block">
     <h2>{{ $t('vinyl.collection.title') }}</h2>
     <div class="vinyl__collection">
-      <article v-for="record in records" :key="record.title" class="vinyl-card">
-        <img :src="record.cover" :alt="record.title" class="vinyl-card__cover" />
+      <article v-for="record in records" :key="record.id" class="vinyl-card">
+        <img :src="record.cover_image_url ?? fallbackCoverUrl" :alt="record.album" class="vinyl-card__cover" />
         <div class="vinyl-card__content">
-          <a :href="record.url" target="_blank">{{ record.title }}</a>
-          <p>{{ record.artist }}, {{ record.year }} ({{ record.albumType }})</p>
-          <p v-if="record.variant">{{ record.variant }}</p>
+          <a v-if="record.discogs_url" :href="record.discogs_url" target="_blank" rel="noopener">{{ record.album }}</a>
+          <span v-else>{{ record.album }}</span>
+          <p>{{ record.artist }}, {{ record.album_release_year }}</p>
+          <p v-if="formatRecordVariant(record)">{{ formatRecordVariant(record) }}</p>
         </div>
       </article>
     </div>
@@ -26,12 +27,13 @@
       <h2>{{ $t('vinyl.top_albums.title') }}</h2>
       <table class="vinyl-table">
         <tbody>
-          <tr v-for="album in topAlbums" :key="album.title">
+          <tr v-for="album in topAlbums" :key="album.id">
             <td>
-              <a :href="album.url" target="_blank">{{ album.title }}</a>
+              <a v-if="album.discogs_url" :href="album.discogs_url" target="_blank" rel="noopener">{{ album.album }}</a>
+              <span v-else>{{ album.album }}</span>
             </td>
             <td>{{ album.artist }}</td>
-            <td>{{ album.rating }}</td>
+            <td>{{ t('vinyl.top_albums.rating', { rating: album.rating }) }}</td>
           </tr>
         </tbody>
       </table>
@@ -52,72 +54,49 @@
 </template>
 
 <script setup lang="ts">
+import type { PublicVinylRecord, VinylStatistics } from '~/types/vinyl';
+
 const {t, locale} = useI18n();
 const localePath = useLocalePath();
 
-const records = [
-  {
-    title: 'Brat And It’s Completely Different But Also Still Brat',
-    artist: 'Charli XCX',
-    year: '2025',
-    albumType: 'Album',
-    variant: 'Green Translucent',
-    cover: '/images/vinyl-brat.svg',
-    url: 'https://open.spotify.com/album/0PIR7PK8DMB4pgoxqN0F5m',
-  },
-  {
-    title: 'MAYHEM',
-    artist: 'Lady Gaga',
-    year: '2025',
-    albumType: 'Album',
-    variant: 'Clear Vinyl',
-    cover: '/images/vinyl-mayhem.svg',
-    url: 'https://open.spotify.com/album/2MHUaRi9OCyTN02SoyRRBJ',
-  },
-  {
-    title: 'The Rise and Fall of a Midwest Princess',
-    artist: 'Chappell Roan',
-    year: '2023',
-    albumType: 'Album',
-    variant: 'Pink Pony Club Edition',
-    cover: '/images/vinyl-midwest-princess.svg',
-    url: 'https://open.spotify.com/album/0EiI8ylL0FmWWpgHVTsZjZ',
-  },
-];
+const fallbackCoverUrl = '/images/vinyl-brat.svg';
 
-const topAlbums = [
-  {
-    title: 'MAYHEM',
-    artist: 'Lady Gaga',
-    rating: '10/10',
-    url: 'https://open.spotify.com/album/2MHUaRi9OCyTN02SoyRRBJ',
-  },
-  {
-    title: 'Brat And It’s Completely Different But Also Still Brat',
-    artist: 'Charli XCX',
-    rating: '9/10',
-    url: 'https://open.spotify.com/album/0PIR7PK8DMB4pgoxqN0F5m',
-  },
-  {
-    title: 'The Rise and Fall of a Midwest Princess',
-    artist: 'Chappell Roan',
-    rating: '9/10',
-    url: 'https://open.spotify.com/album/0EiI8ylL0FmWWpgHVTsZjZ',
-  },
-];
+const {data: vinylData} = await useFetch<{
+  records: PublicVinylRecord[];
+  top_albums: PublicVinylRecord[];
+}>('/api/vinyl');
+
+const {data: statisticsData} = await useFetch<{ statistics: VinylStatistics }>('/api/vinyl/statistics');
+
+const records = computed(() => vinylData.value?.records ?? []);
+const topAlbums = computed(() => vinylData.value?.top_albums ?? []);
+
+const formatRecordVariant = (record: PublicVinylRecord) => [
+  record.vinyl_color,
+  record.edition_release_year ? String(record.edition_release_year) : null,
+  record.limited_edition ? t('vinyl.collection.limited_edition') : null,
+].filter(Boolean).join(' · ');
 
 const statistics = computed(() => [
   {
-    label: t('vinyl.statistics.items.collected.label'),
-    value: t('vinyl.statistics.items.collected.value'),
+    label: t('vinyl.statistics.items.releases.label'),
+    value: t('vinyl.statistics.items.releases.value', {
+      count: statisticsData.value?.statistics.release_count ?? 0,
+    }),
   },
   {
-    label: t('vinyl.statistics.items.total_duration.label'),
-    value: t('vinyl.statistics.items.total_duration.value'),
+    label: t('vinyl.statistics.items.discs.label'),
+    value: t('vinyl.statistics.items.discs.value', {
+      count: statisticsData.value?.statistics.disc_count ?? 0,
+    }),
   },
   {
-    label: t('vinyl.statistics.items.live_albums.label'),
-    value: t('vinyl.statistics.items.live_albums.value'),
+    label: t('vinyl.statistics.items.average_rating.label'),
+    value: statisticsData.value?.statistics.average_rating === null
+      ? t('vinyl.statistics.items.average_rating.empty')
+      : t('vinyl.statistics.items.average_rating.value', {
+        rating: statisticsData.value?.statistics.average_rating ?? 0,
+      }),
   },
 ]);
 
