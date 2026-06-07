@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290" role="img" aria-labelledby="title">
+  <title id="title">The Rise and Fall of a Midwest Princess vinyl cover placeholder</title>
+  <rect width="290" height="290" fill="#f8a9c6"/>
+  <circle cx="145" cy="145" r="91" fill="#212121"/>
+  <circle cx="145" cy="145" r="34" fill="#f8a9c6"/>
+  <circle cx="145" cy="145" r="7" fill="#212121"/>
+  <path d="M65 74c23-20 49-30 80-30s57 10 80 30" fill="none" stroke="#fff4aa" stroke-width="10" stroke-linecap="round"/>
+  <text x="145" y="260" fill="#212121" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Midwest Princess</text>
+</svg>

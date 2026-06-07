@@ -3,6 +3,10 @@
     "index": {
       "title": "Stepan Fedyanov — Applied AI Engineer",
       "description": "Stepan Fedyanov — Applied AI Engineer — Development of AI-powered applications, LLM systems, RAG pipelines, Multi-Agent systems, Text-to-SQL"
+    },
+    "vinyl": {
+      "title": "Vinyl Collection — Stepan Fedyanov",
+      "description": "Stepan Fedyanov’s vinyl collection: favorite albums, top ratings, and collection statistics."
     }
   },
   "index": {
@@ -22,6 +26,10 @@
         {
           "name": "Resume",
           "url": "https://resume.fedyanov.dev"
+        },
+        {
+          "name": "Vinyl",
+          "url": "/vinyl"
         }
       ]
     },
@@ -77,37 +85,79 @@
       "items": [
         {
           "name": "Email",
-          "url": "mailto:stepan{'@'}fedyanov.dev"
+          "url": "mailto:stepan{'@'}fedyanov.dev",
+          "target": "_blank"
         },
         {
           "name": "Telegram",
-          "url": "https://t.me/stepanfedyanov"
+          "url": "https://t.me/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "Telegram Channel “Mom, I’m a Programmer”",
-          "url": "https://t.me/mumproger"
+          "url": "https://t.me/mumproger",
+          "target": "_blank"
         },
         {
           "name": "Github",
-          "url": "https://github.com/stepanfedyanov"
+          "url": "https://github.com/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "Gitlab",
-          "url": "https://gitlab.com/stepanfedyanov"
+          "url": "https://gitlab.com/stepanfedyanov",
+          "target": "_blank"
         },
         {
           "name": "LinkedIn",
-          "url": "https://www.linkedin.com/in/stepanfedyanov/"
+          "url": "https://www.linkedin.com/in/stepanfedyanov/",
+          "target": "_blank"
+        },
+        {
+          "name": "Vinyl",
+          "url": "/vinyl"
         },
         {
           "name": "Resume in Russian",
-          "url": "https://cv.fedyanov.ru"
+          "url": "https://cv.fedyanov.ru",
+          "target": "_blank"
         },
         {
           "name": "Resume in English",
-          "url": "https://resume.fedyanov.dev"
+          "url": "https://resume.fedyanov.dev",
+          "target": "_blank"
         }
       ]
+    }
+  },
+  "vinyl": {
+    "back_link": "Home",
+    "hero": {
+      "title": "Vinyl Collection",
+      "text": "Besides work, I love listening to music and collecting vinyl. I mostly listen to pop music and live versions of albums. Music helps me rest and develop creativity — a skill that separates a good specialist from AI."
+    },
+    "collection": {
+      "title": "Vinyl"
+    },
+    "top_albums": {
+      "title": "Top Albums"
+    },
+    "statistics": {
+      "title": "Statistics",
+      "items": {
+        "collected": {
+          "label": "Collected",
+          "value": "12 records"
+        },
+        "total_duration": {
+          "label": "Total collection duration",
+          "value": "2340 minutes"
+        },
+        "live_albums": {
+          "label": "Live albums",
+          "value": "4 records"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290" role="img" aria-labelledby="title">
+  <title id="title">MAYHEM vinyl cover placeholder</title>
+  <rect width="290" height="290" fill="#f4f1e8"/>
+  <circle cx="145" cy="145" r="92" fill="#171717"/>
+  <circle cx="145" cy="145" r="36" fill="#e53935"/>
+  <circle cx="145" cy="145" r="7" fill="#171717"/>
+  <path d="M46 46h198v198H46z" fill="none" stroke="#171717" stroke-width="8"/>
+  <text x="145" y="265" fill="#171717" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">MAYHEM</text>
+</svg>
