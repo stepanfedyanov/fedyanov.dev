@@ -45,7 +45,7 @@ set search_path = public
 as $$
 declare
   current_bucket public.admin_rate_limits%rowtype;
-  current_time timestamptz := now();
+  current_timestamp_at timestamptz := now();
 begin
   perform pg_advisory_xact_lock(hashtext(p_key));
 
@@ -55,12 +55,12 @@ begin
   where key = p_key
   for update;
 
-  if current_bucket.key is null or current_bucket.reset_at <= current_time then
+  if current_bucket.key is null or current_bucket.reset_at <= current_timestamp_at then
     insert into public.admin_rate_limits (key, count, reset_at, blocked_until)
     values (
       p_key,
       1,
-      current_time + make_interval(secs => p_window_seconds),
+      current_timestamp_at + make_interval(secs => p_window_seconds),
       '-infinity'
     )
     on conflict (key) do update
@@ -71,14 +71,14 @@ begin
     return;
   end if;
 
-  if current_bucket.blocked_until > current_time then
+  if current_bucket.blocked_until > current_timestamp_at then
     raise exception 'rate_limited';
   end if;
 
   if current_bucket.count + 1 > p_limit then
     update public.admin_rate_limits
     set count = count + 1,
-        blocked_until = current_time + make_interval(secs => p_block_seconds)
+        blocked_until = current_timestamp_at + make_interval(secs => p_block_seconds)
     where key = p_key;
 
     raise exception 'rate_limited';
